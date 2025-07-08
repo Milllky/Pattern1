@@ -36,12 +36,12 @@ public class CardDeliveryTest {
         $("[data-test-id='phone'] input").setValue(validUser.getPhone());
         $("[data-test-id='agreement']").click();
         $(byText("Запланировать")).click();
-        $("[data-test-id='success-notification'] .notification__content").should(Condition.visible,  Duration.ofSeconds(5)).should(Condition.exactText("Встреча успешно забронирована на " + firstMeet));
+        $("[data-test-id='success-notification'] .notification__content").should(Condition.visible,  Duration.ofSeconds(5)).should(Condition.exactText("Встреча успешно запланирована на " + firstMeet));
         $("[data-test-id='date'] input").press(Keys.chord(Keys.SHIFT, Keys.HOME), Keys.DELETE);
         $("[data-test-id='date'] input").setValue(secondMeet);
         $(byText("Запланировать")).click();
         $("[data-test-id='replan-notification'] .notification__content").should(Condition.visible,  Duration.ofSeconds(5)).should(Condition.text("У вас уже запланирована встреча на другую дату. Перепланировать?"));
         $(byText("Перепланировать")).click();
-        $("[data-test-id='success-notification'] .notification__content").should(Condition.visible,  Duration.ofSeconds(5)).should(Condition.text("Встреча успешно забронирована на " + secondMeet));
+        $("[data-test-id='success-notification'] .notification__content").should(Condition.visible,  Duration.ofSeconds(5)).should(Condition.text("Встреча успешно запланирована на " + secondMeet));
     }
 }
